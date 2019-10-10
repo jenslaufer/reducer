@@ -1,6 +1,3 @@
-FROM python:3.7-slim-buster
+FROM jenslaufer/python-r:py37
 
-RUN apt-get update && apt-get install -y r-base
-
-RUN R -e "install.packages(c('tidyverse', 'lubridate', 'devtools'), repos = 'http://cran.us.r-project.org')"
-RUN R -e "install.github('jenslaufer/reducer')"
+RUN R -e "devtools::install_github('jenslaufer/sample-r-library-reducer')"
